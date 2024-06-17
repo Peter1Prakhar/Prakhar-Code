@@ -32,7 +32,7 @@ function Navbar({problemPage}: { problemPage: boolean }) {
                 <button className="bg-black-300 hover:bg-black-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                     <svg className="h-8 w-8 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <polyline points="15 18 9 12 15 6" /></svg>
                 </button>
-                <button className="bg-black-300 hover:bg-black-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+                <button className="bg-black-300 hover:bg-black-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" >
                     Run
                 </button>
                 <button className="bg-black-300 hover:bg-black-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">

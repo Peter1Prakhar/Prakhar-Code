@@ -23,11 +23,18 @@ export type Problem = {
 		Explanation: string;
 	};
 	Constraints?: string;
-	boilerTemplate?:{
-		CPP: string;
-		Java: string;
-		Javascript:string;
-	}
+	Testcase1?: {
+		Input: string;
+		Output: string;
+	};
+	TestCase2?: {
+		Input: string;
+		Output: string;
+	};
+	TestCase3?: {
+		Input: string;
+		Output: string;
+	};
 };
 
 export const problems: Problem[] = [
@@ -56,24 +63,17 @@ export const problems: Problem[] = [
 			Explanation: "Because nums[0] + nums[1] == 6, we return [0, 1]."
 		},
 		Constraints: "2 <= nums.length <= 10^4, -10^9 <= nums[i] <= 10^9, -10^9 <= target <= 10^9, Only one valid answer exists.",
-		boilerTemplate: {
-			CPP: `class Solution {
-				public:
-				  vector<int> twoSum(vector<int>& nums, int target) {
-					// Your code here
-				  }
-			  };`,
-			Java: `class Solution {
-					<br>
-				public int[] twoSum(int[] nums, int target) {
-				<br>
-					// Your code here
-					<br>
-				}
-			}`,
-			Javascript: `var twoSum = function(nums, target) {
-				// Your code here
-			};`
+		Testcase1:{
+			Input: "[2,7,11,15], 9",
+			Output: "[0,1]"
+		},
+		TestCase2:{
+			Input: "[3,2,4], 6",
+			Output: "[1,2]"
+		},
+		TestCase3:{
+			Input: "[3,3], 6",
+			Output: "[0,1]"
 		}
 			
 	},
@@ -101,7 +101,19 @@ export const problems: Problem[] = [
 			Output: "[]",
 			Explanation: "After reversing the list, the input list is []."
 		},
-		Constraints: "The number of nodes in the list is the range [0, 5000], -5000 <= Node.val <= 5000."
+		Constraints: "The number of nodes in the list is the range [0, 5000], -5000 <= Node.val <= 5000.",
+		Testcase1:{
+			Input: "[1,2,3,4,5]",
+			Output: "[5,4,3,2,1]"
+		},
+		TestCase2:{
+			Input: "[1,2]",
+			Output: "[2,1]"
+		},
+		TestCase3:{
+			Input: "[]",
+			Output: "[]"
+		}
 	},
 	{
 		id: "jump-game",
@@ -111,7 +123,7 @@ export const problems: Problem[] = [
 		order: 3,
 		videoId: "",
 		description: "Given an array of non-negative integers nums, you are initially positioned at the first index of the array. Each element in the array represents your maximum jump length at that position. Determine if you are able to reach the last index.",
-		isSolved: false,
+		isSolved: true,
 		Example1: {
 			Input: "nums = [2,3,1,1,4]",
 			Output: "true",
@@ -122,7 +134,19 @@ export const problems: Problem[] = [
 			Output: "false",
 			Explanation: "Because you will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index."
 		},	
-		Constraints: "1 <= nums.length <= 10^4, 0 <= nums[i] <= 10^5."
+		Constraints: "1 <= nums.length <= 10^4, 0 <= nums[i] <= 10^5.",
+		Testcase1:{
+			Input: "[2,3,1,1,4]",
+			Output: "true"
+		},
+		TestCase2:{
+			Input: "[3,2,1,0,4]",
+			Output: "false"
+		},
+		TestCase3:{
+			Input: "[0]",
+			Output: "true"
+		}
 	},
 	{
 		id: "valid-parentheses",

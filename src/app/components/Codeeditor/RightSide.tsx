@@ -94,25 +94,27 @@ export const RightSide = ({ problemId }: { problemId: string }) => {
         }}
         className='flex flex-col space-y-4'
       >
-        <label htmlFor="input" className='text-lg font-semibold'>
-          Test Case Input:
-        </label>
-        <textarea
-      className='p-2 rounded text-black'
-      name="input"
-      id="input"
-      placeholder="Enter your test case here..."
-      value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
-      onKeyDown={handleKeyPress}
-      rows={5} // Adjust the number of rows as needed
-    />
+        <div className='flex'>
+            <label htmlFor="input" className='text-lg font-semibold'>
+            Test Case Input:
+            </label>
+            <textarea
+        className='p-2 rounded text-black'
+        name="input"
+        id="input"
+        placeholder="Enter your test case here..."
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={handleKeyPress}
+        rows={5} // Adjust the number of rows as needed
+        />
         <button
           type="submit"
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-        >
+          className="bg-green-500 hover:bg-green-700 text-white font-bold h-10 rounded"
+          >
           Add Test Case
         </button>
+            </div>
       </form>
       <div className='mt-5'>
         <SyntaxHighlighter language="cpp" style={dark} className='rounded-lg'>
@@ -125,39 +127,6 @@ export const RightSide = ({ problemId }: { problemId: string }) => {
       >
         Run Code
       </button>
-      <div className='mt-10'>
-        <h2 className='text-lg font-semibold mb-4'>Test Cases</h2>
-        {problem.Testcase1 && (
-          <div className='mb-5 p-4 bg-gray-700 rounded-lg'>
-            <p className='text-sm'>
-              <span className='font-bold'>Input:</span> {problem.Testcase1.Input}
-            </p>
-            <p className='text-sm'>
-              <span className='font-bold'>Expected Output:</span> {problem.Testcase1.Output}
-            </p>
-          </div>
-        )}
-        {problem.TestCase2 && (
-          <div className='mb-5 p-4 bg-gray-700 rounded-lg'>
-            <p className='text-sm'>
-              <span className='font-bold'>Input:</span> {problem.TestCase2.Input}
-            </p>
-            <p className='text-sm'>
-              <span className='font-bold'>Expected Output:</span> {problem.TestCase2.Output}
-            </p>
-          </div>
-        )}
-        {problem.TestCase3 && (
-          <div className='mb-5 p-4 bg-gray-700 rounded-lg'>
-            <p className='text-sm'>
-              <span className='font-bold'>Input:</span> {problem.TestCase3.Input}
-            </p>
-            <p className='text-sm'>
-              <span className='font-bold'>Expected Output:</span> {problem.TestCase3.Output}
-            </p>
-          </div>
-        )}
-      </div>
     </div>
             </Split>
         </div>

@@ -15,7 +15,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = (email: string, password: string) => signInWithEmailAndPassword(auth, email, password);
   const signup = (email: string, password: string) => createUserWithEmailAndPassword(auth, email, password);
-  const logout = () => signOut(auth);
+  const logout = async () => {
+    await signOut(auth);
+    setCurrentUser(null); // Manually set to null to reflect state immediately
+  };
+  
 
   return (
     <AuthContext.Provider value={{ currentUser, login, signup, logout }}>

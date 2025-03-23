@@ -5,11 +5,6 @@ import { useAuth } from "./firebase/AuthContext";
 export default function Home() {
   const { currentUser } = useAuth();
   const router = useRouter();
-
-  if (currentUser) {
-    router.push("/problems"); // Redirect to problems if already logged in
-  }
-
   return (
     <main className="h-screen flex flex-col items-center justify-center text-center">
       <h1 className="text-4xl font-bold">Welcome to Prakhar Code</h1>

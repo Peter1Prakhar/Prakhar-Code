@@ -1,26 +1,25 @@
 "use client";
-import { Login } from "@/components/Login";
-import YouTube from 'react-youtube';
-import { useState } from "react";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from "@/firebase/firebase";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
+import { useAuth } from "./firebase/AuthContext";
 
-export default function HomePage(){
-  const Navigate = useRouter();
-  const [videoId, setVideoId] = useState<string | null>(null);
-  const handleVideoClose = () => {
-    setVideoId(null);
-  };
-  const handleProblemPage = (id: string) => {
-    Navigate.push(`/product/${id}`);
+export default function Home() {
+  const { currentUser } = useAuth();
+  const router = useRouter();
+
+  if (currentUser) {
+    router.push("/problems"); // Redirect to problems if already logged in
   }
-  const [user, loading, error] = useAuthState(auth); // this is for the authenticating the user is logged in or not
-  if(!user) 
-    Navigate.push("/home");
+
   return (
-    <>
-      {user && Navigate.push("/problems")}
-    </>
+    <main className="h-screen flex flex-col items-center justify-center text-center">
+      <h1 className="text-4xl font-bold">Welcome to Prakhar Code</h1>
+      <p className="text-lg text-gray-600 mt-2">Solve coding problems and enhance your skills</p>
+      <button
+        onClick={() => router.push("/login")}
+        className="mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg"
+      >
+        Login to Get Started
+      </button>
+    </main>
   );
 }

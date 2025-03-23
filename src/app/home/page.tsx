@@ -1,6 +1,5 @@
 "use client";
 import { AuthModel } from "@/components/AuthModel";
-import Navbar from "@/components/Codeeditor/Navbar";
 import { useRecoilValue } from "recoil";
 import { authModalState } from "@/atoms/authModelAtom"; // Add missing import
 import React from "react";
@@ -22,7 +21,6 @@ export default function Home() {
   if(pageLoading) return null;
   return (
     <div className="bg-[url('/bg.png')] h-screen bg-cover bg-center">
-      <Navbar problemPage= {false} />
       {authModal.isOpen && <AuthModel />} 
     </div>
   );

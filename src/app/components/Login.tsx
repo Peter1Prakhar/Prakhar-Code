@@ -31,7 +31,7 @@ export const Login = () => {
             const user = await signInWithEmailAndPassword(input.email, input.password);
             if(!user) return;
             console.log(user);
-            navigate.push("/");
+            navigate.push("/problems");
         } catch (error) {
             console.log(error);
         }

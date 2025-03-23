@@ -18,17 +18,19 @@ export const Signup=()=> {
     const navigate = useRouter(); 
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("hello");
+        if (!input.email || !input.password) {
+            alert("Please enter both email and password");
+            return;
+        }
         try {
             const newUser = await createUserWithEmailAndPassword(input.email, input.password);
-            console.log(newUser);
-            if(!newUser) return;
-            navigate.push("/");
-        } catch (error:any) {
-            alert(error.message)
+            if (!newUser) return;
+            navigate.push("/problems");
+        } catch (error: any) {
+            console.error("Firebase Error:", error);
+            alert(error.message); 
         }
-        console.log("hello");
-    }
+    };
 
   return (
     <div className="flex justify-center items-center h-screen">
